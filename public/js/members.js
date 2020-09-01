@@ -30,8 +30,8 @@ $(document).ready(() => {
             console.log(result.cuisines[i]);
             console.log(result.cuisines[i].cuisine.cuisine_name);
             $(
-              `<button class="category">${result.cuisines[i].cuisine.cuisine_name}</button><br>`
-            ).appendTo("#cuisines");
+              `<li class="category">${result.cuisines[i].cuisine.cuisine_name}</li><br>`
+            ).appendTo(".cat");
           }
         });
     });
