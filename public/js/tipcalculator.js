@@ -1,29 +1,44 @@
-function calcTip(){
+window.onload = function() {
 
-    let tipAmount= document.getElementById("tipForm").value;
-    let billAmount = document.getElementById("billInput").value;
-    let billCard = document.getElementById("bill-card");
-
-    //turn strings into numbers
-    let tipAmountNumber = parseFloat(tipAmount);
-    let billAmountNumber = parseFloat(billAmount);
-
-
-    //grab elements
-    let bill = document.getElementById('bill-p');
-    let tip = document.getElementById('tip-p');
-    let total = document.getElementById('total-p');
-
-    // calculations
-    let totalAmount = (tipAmountNumber * billAmountNumber);
-    let totalBill = totalAmount + billAmountNumber;
-
-    //append content
-    tip.innerHTML = "$" + (totalAmount).toFixed(2);
-    bill.innerHTML =  "$" + billAmountNumber.toFixed(2);
-    total.innerHTML = "$" + totalBill.toFixed(2);
-
-
-    billCard.style.display = "block";
-
+    document.getElementById("tipCalc").onclick = function() {
+        calculateTip();
+    };
 }
+
+
+function calculateTip() {
+
+    let totalCost = document.getElementById("totalCost").nodeValue;
+    let service = document.getElementById("service").nodeValue;
+    let numPeople = document.getElementById("people").nodeValue;
+
+    // validate input
+    if (totalCost == "") {
+        alert("Hey you forgot the total cost!");
+        return;
+    }
+
+    // Calculate the Tip
+    let total = (totalCost * service) / numPeople;
+    // Output 2 decimal places
+    total = total.toFixed(2);
+    // Display the tip
+    document.getElementById("totaltip").innerText = total;
+    $('#exampleModal').modal('toggle');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
