@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -49,5 +54,6 @@ input[type="submit"]:hover {
 }
 
 .category {
-  width: 15%;
+  text-align: center;
+  width: 100%;
 }
