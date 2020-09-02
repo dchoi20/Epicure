@@ -27,13 +27,41 @@ $(document).ready(() => {
         .then((response) => response.json())
         .then((result) => {
           for (let i = 0; i < result.cuisines.length; i++) {
-            console.log(result.cuisines[i]);
-            console.log(result.cuisines[i].cuisine.cuisine_name);
+            let cuisines = result.cuisines[i].cuisine.cuisine_id;
+
+            let cuisineName = result.cuisines[i].cuisine.cuisine_name;
+
             $(
-              `<li class="category">${result.cuisines[i].cuisine.cuisine_name}</li><br>`
-            ).appendTo(".cat");
+              `<li class="category" data-id ="${cuisines}">${cuisineName}</li><br>`
+            ).appendTo(".cuisineType");
           }
         });
+
+      $("#cuisineList").on("click", ".category", function() {
+        let cuisineID = $(this).attr("data-id");
+        console.log(cuisineID);
+        console.log(lat);
+        console.log(long);
+
+        fetch(
+          `https://developers.zomato.com/api/v2.1/search?lat=${lat}&lon=${long}&cuisines=${cuisineID}`,
+          {
+            method: "get",
+            headers: {
+              Accept: "application/json",
+              "user-key": "4319a1eed8d7dbe3e7050e70e4bcaf33",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            for (let i = 0; i < result.restaurants.length; i++) {
+              console.log(result.restaurants[i]);
+              console.log(result.restaurants[i].restaurant.name);
+            }
+            console.log(result);
+          });
+      });
     });
   });
 });
