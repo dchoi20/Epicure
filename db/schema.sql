@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS epicure;
+
+CREATE DATABASE epicure;
+USE epicure;
