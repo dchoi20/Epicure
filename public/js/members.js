@@ -55,11 +55,13 @@ $(document).ready(() => {
         )
           .then((response) => response.json())
           .then((result) => {
+            // result.map((result) => console.log(result.restaurants));
             for (let i = 0; i < result.restaurants.length; i++) {
-              console.log(result.restaurants[i]);
-              console.log(result.restaurants[i].restaurant.name);
+              let address = result.restaurants[i].restaurant.location.address;
+              let restaurantName = result.restaurants[i].restaurant.name;
+              console.log(restaurantName);
+              console.log(address);
             }
-            console.log(result);
           });
       });
     });
