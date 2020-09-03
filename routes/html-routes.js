@@ -27,4 +27,14 @@ module.exports = function(app) {
     // res.sendFile(path.join(__dirname, "../public/members.html"));
     res.render("members");
   });
+
+  app.get("/contactUs", function(req, res) {
+
+    res.render("contactUs");
+  });
+
+  app.get("/tipcalculator", function(req, res) {
+    
+    res.render("tipcalculator");
+  });
 };
