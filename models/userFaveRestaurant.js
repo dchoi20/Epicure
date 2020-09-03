@@ -1,5 +1,5 @@
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function(sequelize) {
 
     const UserRestaurant = sequelize.define('user_restaurant');
     UserRestaurant.associate = function(models) {
