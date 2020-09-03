@@ -68,7 +68,7 @@ $(document).ready(() => {
               console.log(address);
 
               $(`
-              <div class="card " style="width: 100%;">
+              <div class="card restInfo" style="width: 100%;">
               <div class="card-body">
               <h5 class="card-title">${restaurantName}</h5>
               <h6 class="card-subtitle mb-2 text-muted">${address}</h6>
