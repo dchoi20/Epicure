@@ -67,13 +67,6 @@ $(document).ready(() => {
               console.log(restaurantName);
               console.log(address);
               
-              $("#saveBtn").on("click", function (event) {
-                console.log(restaurantName);
-                event.preventDefault();
-                if (!actors.some((actor) => actor.name === currentTargetPerson.name))
-                  actors.push(currentTargetPerson);
-                localStorage.setItem("actors", JSON.stringify(actors));
-              });
               $(`
               <div class="card restInfo" style="width: 100%;">
               <div class="card-body">
