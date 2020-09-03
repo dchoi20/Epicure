@@ -42,9 +42,11 @@ $(document).ready(() => {
         console.log(cuisineID);
         console.log(lat);
         console.log(long);
+        $(".restaurantInfo").empty();
 
         fetch(
-          `https://developers.zomato.com/api/v2.1/search?lat=${lat}&lon=${long}&cuisines=${cuisineID}`,
+          `https://developers.zomato.com/api/v2.1/search?count=10&lat=${lat}&lon=${long}&cuisines=${cuisineID}&sort=rating`,
+
           {
             method: "get",
             headers: {
@@ -59,8 +61,22 @@ $(document).ready(() => {
             for (let i = 0; i < result.restaurants.length; i++) {
               let address = result.restaurants[i].restaurant.location.address;
               let restaurantName = result.restaurants[i].restaurant.name;
+              let restaurantTime = result.restaurants[i].restaurant.timings;
+              let restaurantURL = result.restaurants[i].restaurant.url;
+              console.log(result.restaurants[i]);
               console.log(restaurantName);
               console.log(address);
+
+              $(`
+              <div class="card restInfo" style="width: 100%;">
+              <div class="card-body">
+              <h5 class="card-title">${restaurantName}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${address}</h6>
+              <p class="card-text">${restaurantTime}</p>
+              <a href="${restaurantURL}" class="card-link">Website</a>
+              </div>
+              </div>
+              `).appendTo(".restaurantInfo");
             }
           });
       });
