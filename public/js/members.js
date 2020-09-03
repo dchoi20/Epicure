@@ -68,7 +68,7 @@ $(document).ready(() => {
               console.log(result.restaurants[i]);
               console.log(restaurantName);
               console.log(address);
-
+              
               $(`
               <div class="card" style="width: 100%;">
               <div class="card-body restInfo">

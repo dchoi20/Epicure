@@ -21,6 +21,7 @@ $(document).ready(() => {
       let long = result.location.longitude;
       console.log(result.location.latitude);
       let lat = result.location.latitude;
+      let mapboxgl;
       mapboxgl.accessToken =
         "pk.eyJ1IjoiZGNob2kyMCIsImEiOiJja2VpcmFyeXYxYTY5MnJzNHBmcGV2OW5rIn0.m4KpGy6Glb5cbcAeJowlkQ";
       var map = new mapboxgl.Map({
