@@ -62,3 +62,13 @@ input[type="submit"]:hover {
   background-color: blanchedalmond;
   cursor: pointer;
 }
+.restaurantInfo {
+  
+  color: #ff4b2b;
+  
+}
+.welcome {
+  color: #ff4b2b;
+  text-align: center;
+  
+}
