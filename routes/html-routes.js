@@ -8,17 +8,18 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.render("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login-signup.html"));
+    res.render("login-signup")
+    // res.sendFile(path.join(__dirname, "../public/login-signup.html"));
   });
 
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.render("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login-signup.html"));
+    // res.sendFile(path.join(__dirname, "../public/login-signup.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -33,8 +34,18 @@ module.exports = function(app) {
     res.render("contactUs");
   });
 
+  app.get("/restaurantReview", function(req, res) {
+
+    res.render("restaurantReview");
+  });
+
   app.get("/tipcalculator", function(req, res) {
     
     res.render("tipcalculator");
+  });
+
+  app.get("/login-signup", function(req, res) {
+
+    res.render("login-signup");
   });
 };
