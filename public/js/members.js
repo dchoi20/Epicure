@@ -5,9 +5,7 @@ $(document).ready(() => {
     $(".member-name").text(data.email);
   });
 
-  let coords = document.querySelector("#get-location");
-  // let categoryBtn = document.querySelector(".category");
-  coords.addEventListener("click", function() {
+  $("#get-location").on("click", function() {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let long = position.coords.longitude;

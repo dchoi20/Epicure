@@ -1,21 +1,41 @@
-var Sequelize = require("sequelize");
+module.exports = function(sequelize, DataTypes) {
+  const Submission = sequelize.define("Submission", {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    subject: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [0, 240],
+      },
+    },
+  });
 
-var sequelize = require(".config/connection.js");
-
-var Submission = sequelize.define("submission", {
-    routeName: Sequelize.STRING,
-
-    firstName: Sequelize.STRING,
-
-    lastName: Sequelize.STRING,
-
-    country: Sequelize.STRING,
-
-    subject: Sequelize.STRING
-}, {
-    freezeTableName: true
-});
-
-Submission.sync();
-
-module.exports = Submission;
+  Submission.associate = function(models) {
+    Submission.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+  };
+  return Submission;
+};
