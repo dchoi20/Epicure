@@ -63,20 +63,15 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/api/form_submission", function(req, res) {
-
-    var submission = req.body;
-
-    var routeName = submission.firstName.replace(/\s+/g, "").toLowerCase();
-
-    submission.create({
-      routeName: routeName,
-      firstName: submission.firstName,
-      lastName: submission.lastName,
-      country: submission.country,
-      subject: submission.subject
+  app.post("/api/contact", (req, res) => {
+    db.Submission.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      country: req.body.country,
+      subject: req.body.subject,
+      UserId: req.user.id,
+    }).then(() => {
+      res.status(200).end();
     });
-
-    res.status(204).end();
   });
 };
