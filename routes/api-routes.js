@@ -63,7 +63,7 @@ module.exports = function(app) {
     }
   });
 
-  app,post("/api/form_submission", function(req, res) {
+  app.post("/api/form_submission", function(req, res) {
 
     var submission = req.body;
 
