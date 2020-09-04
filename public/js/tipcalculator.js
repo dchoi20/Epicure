@@ -8,9 +8,9 @@ window.onload = function() {
 
 function calculateTip() {
 
-    let totalCost = document.getElementById("totalCost").nodeValue;
-    let service = document.getElementById("service").nodeValue;
-    let numPeople = document.getElementById("people").nodeValue;
+    let totalCost = document.getElementById("totalCost").value();
+    let service = document.getElementById("service").value();
+    let numPeople = document.getElementById("people").value();
 
     // validate input
     if (totalCost == "") {
@@ -23,7 +23,8 @@ function calculateTip() {
     // Output 2 decimal places
     total = total.toFixed(2);
     // Display the tip
-    document.getElementById("totaltip").innerText = total;
+    console.log(total);
+    document.getElementById("totalTip").innerText = total;
     $('#exampleModal').modal('toggle');
 }
 
