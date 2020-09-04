@@ -61,5 +61,17 @@ module.exports = function(app) {
         id: req.user.id,
       });
     }
-  })
+  });
+
+  app.post("/api/contact", (req, res) => {
+    db.Submission.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      country: req.body.country,
+      subject: req.body.subject,
+      UserId: req.user.id,
+    }).then(() => {
+      res.status(200).end();
+    });
+  });
 };
