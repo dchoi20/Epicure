@@ -88,3 +88,8 @@ input[type="submit"]:hover {
 #restaurantReview {
   text-align: center;
 }
+
+.restaurantReviewName {
+  text-align: center;
+  color: #ff416c;
+}
