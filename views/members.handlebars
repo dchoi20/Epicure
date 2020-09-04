@@ -1,3 +1,4 @@
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <nav class="navbar navbar-default">
     <div class="topnav">
         <a class="navbar-brand" href="./members">
@@ -14,8 +15,9 @@
         </a>
     </div>
 </nav>
+<body class="memberPage">
 <div class="container">
-    <h2 class="welcome"> Welcome <span class="member-name"></span></h2>
+    <h2> Welcome <span class="member-name"></span></h2>
 </div>
 <br>
 
@@ -23,7 +25,7 @@
     <div>
 
         <button type="button" class="btn btn-primary" id="get-location">Get Current Location</button>
-        <div class="row">
+        <div data-aos="fade-up" class="row">
             <div class="col-3">
                 <div id="cuisineList">
                     <ul class="cuisineType"></ul>
@@ -41,3 +43,8 @@
     </div>
 
 </div>
+   {{!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+//    <script>
+//  AOS.init();
+//</script> --}}
+</body>
