@@ -68,11 +68,11 @@ $(document).ready(() => {
               console.log(result.restaurants[i]);
               console.log(restaurantName);
               console.log(address);
-              
+
               $(`
               <div class="card" style="width: 100%;">
               <div class="card-body restInfo">
-              <h5 class="card-title"><a href="${restaurantURL}" class="card-link" data-restaurantID="${restaurantID}">${restaurantName}</a></h5>
+              <h5 class="card-title"><a href="${restaurantURL}" class="card-link" data-restaurantID="${restaurantID}" data-restaurantName="${restaurantName}"${restaurantID}">${restaurantName}</a></h5>
               <h6 class="card-subtitle mb-2 text-muted" id="address" data-address="${address}">${address}</h6>
               <p class="card-text">${restaurantTime}</p>
               </div>
@@ -88,19 +88,23 @@ $(document).ready(() => {
       .find("h6")
       .attr("data-address");
 
-    let nameOfRestaurant = $(this)
+    let idOfRestaurant = $(this)
       .find("h5")
       .find("a")
       .attr("data-restaurantID");
+    let nameOfRestaurant = $(this)
+      .find("h5")
+      .find("a")
+      .attr("data-restaurantName");
 
     console.log(this);
-
+    console.log(idOfRestaurant);
     console.log(nameOfRestaurant);
     console.log(restaurantAddress);
-    newPage(nameOfRestaurant);
+    newPage(idOfRestaurant, nameOfRestaurant);
   });
 
-  function newPage(nameOfRestaurant) {
-    window.location.href = `./restaurantReview?restaurant=${nameOfRestaurant}`;
+  function newPage(idOfRestaurant, nameOfRestaurant) {
+    window.location.href = `./restaurantReview?restaurant=${idOfRestaurant}&restaurantName=${nameOfRestaurant}`;
   }
 });

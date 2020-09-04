@@ -14,10 +14,12 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/restaurant", (req, res) => {
-    db.Restaurant.creat({
+  app.post("/api/review", (req, res) => {
+    console.log(req.body.name);
+    console.log(req.body.review);
+    console.log(req.user.id);
+    db.Restaurant.create({
       name: req.body.name,
-      address: req.body.address,
       review: req.body.review,
       UserId: req.user.id,
     }).then(() => {

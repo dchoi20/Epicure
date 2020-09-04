@@ -1,8 +1,7 @@
 let params = new URL(document.location).searchParams;
 let restaurantId = params.get("restaurant");
+let nameOfRestaurant = params.get("restaurantName");
 $(document).ready(() => {
-  console.log(restaurantId);
-
   fetch(
     `https://developers.zomato.com/api/v2.1/restaurant?res_id=${restaurantId}`,
     {
@@ -22,11 +21,6 @@ $(document).ready(() => {
       let phoneNumber = result.phone_numbers;
       let userRating = result.user_rating.aggregate_rating;
       let restaurantWebsite = result.url;
-      console.log(restaurantAddress);
-      console.log(restaurantHours);
-      console.log(averageCost);
-      console.log(phoneNumber);
-      console.log(userRating);
 
       let restaurantName = result.name;
       $(
@@ -47,5 +41,18 @@ $(document).ready(() => {
     event.preventDefault();
     let reviewInfo = $("#restaurantReviews").val();
     console.log(reviewInfo);
+
+    let newReview = {
+      name: nameOfRestaurant,
+      review: $("#restaurantReviews")
+        .val()
+        .trim(),
+    };
+
+    $.post("/api/review", newReview).then(function(data) {
+      console.log(data);
+    });
+
+    $("#restaurantReviews").val("");
   });
 });
