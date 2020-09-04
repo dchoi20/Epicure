@@ -25,25 +25,33 @@
   If you are experiencing any issues please provide your information below & one of our reps will contact you</h3>
 
 <div class="container">
-  <form action="action_page.php">
-
+  <form name="contact-form" action="action_page.php" method="post" id="contact-form">
+    <div class="form-group">
     <label for="fname">First Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    </div>
 
+    <div class="form-group">
     <label for="lname">Last Name</label>
     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    </div>
 
+    <div class="form-group">
     <label for="country">Country</label>
     <select id="country" name="country">
       <option value="usa">USA</option>
       <option value="mexico">Mexico</option>
       <option value="canada">Canada</option>
     </select>
+    </div>
 
+    <div class="form-group">
     <label for="subject">Subject</label>
     <textarea id="subject" name="subject" placeholder="Please explain.." style="height:200px"></textarea>
+    </div>
 
-    <input type="submit" value="Submit">
+    <button type="submit" class="btn btn-primary" name="submit" value="Submit" id="submitBtn">Submit</button>
+  
 
   </form>
 
