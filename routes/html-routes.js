@@ -36,8 +36,8 @@ module.exports = function(app) {
     res.render("restaurantReview");
   });
 
-  app.get("/tipcalculator", function(req, res) {
-    res.render("tipcalculator");
+  app.get("/overview", function(req, res) {
+    res.render("overview");
   });
 
   app.get("/login-signup", function(req, res) {
