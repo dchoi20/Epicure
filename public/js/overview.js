@@ -16,21 +16,36 @@ $(document).ready(() => {
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
-      console.log(result.location.address);
-      console.log(result.location.longitude);
-      let long = result.location.longitude;
-      console.log(result.location.latitude);
-      let lat = result.location.latitude;
-      let mapboxgl;
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoiZGNob2kyMCIsImEiOiJja2VpcmFyeXYxYTY5MnJzNHBmcGV2OW5rIn0.m4KpGy6Glb5cbcAeJowlkQ";
-      var map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [long, lat], // starting position [lng, lat]
-        zoom: 15, // starting zoom
-      });
+      let restaurantAddress = result.location.address;
+      let restaurantHours = result.timings;
+      let averageCost = result.average_cost_for_two;
+      let phoneNumber = result.phone_numbers;
+      let userRating = result.user_rating.aggregate_rating;
+      let restaurantWebsite = result.url;
+      console.log(restaurantAddress);
+      console.log(restaurantHours);
+      console.log(averageCost);
+      console.log(phoneNumber);
+      console.log(userRating);
 
-      var marker = new mapboxgl.Marker().setLngLat([long, lat]).addTo(map);
+      let restaurantName = result.name;
+      $(
+        `<h1 class="restaurantName"><a href="${restaurantWebsite}">${restaurantName}</a></h1>`
+      ).appendTo(".restaurantTitle");
+
+      $(`
+      <li class="list-group-item"><strong>Address:</strong><a href="https://maps.google.com/?q=${restaurantAddress}"> ${restaurantAddress}</a></li>
+      <li class="list-group-item"><strong>Hours of Operation:</strong> ${restaurantHours}</li>
+      <li class="list-group-item"><strong>Contact:</strong> <a href="tel:${phoneNumber}">${phoneNumber}</a></li>
+      <li class="list-group-item"><strong>Average Cost for two:</strong> $${averageCost}</li>
+      <li class="list-group-item"><strong>Rating:</strong> ${userRating}</li>
+      
+      
+      `).appendTo(".infoAboutRestaurant");
     });
+  $("#review").on("submit", function(event) {
+    event.preventDefault();
+    let reviewInfo = $("#restaurantReviews").val();
+    console.log(reviewInfo);
+  });
 });
