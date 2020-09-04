@@ -63,12 +63,28 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 .restaurantInfo {
-  
   color: #ff4b2b;
-  
 }
 .welcome {
   color: #ff4b2b;
   text-align: center;
-  
+}
+
+#map {
+  width: 1000%;
+  height: 500px;
+}
+
+.restaurantName {
+  text-align: center;
+}
+
+.card {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#restaurantReview {
+  text-align: center;
 }
