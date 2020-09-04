@@ -1,46 +1,51 @@
 <nav class="navbar navbar-default">
     <div class="topnav">
         <a class="navbar-brand" href="./members">
-      Home
-    </a>
-    <a class="navbar-brand" href="./contactUs">
-      Contact Us
-    </a>
-    <a class="navbar-brand" href="./restaurantReview">
-      Reviews
-    </a>
-    <a class="navbar-brand" href="./tipcalculator">
-    Tip Calculator
-    </a>
-    <a class="navbar-brand" href="./login-signup">
-      Logout
-    </a>
+            Home
+        </a>
+        <a class="navbar-brand" href="./contactUs">
+            Contact Us
+        </a>
+        <a class="navbar-brand" href="./restaurantReview">
+            Reviews
+        </a>
+        <a class="navbar-brand" href="./tipcalculator">
+            Tip Calculator
+        </a>
+        <a class="navbar-brand" href="./login-signup">
+            Logout
+        </a>
     </div>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h2>Welcome <span class="member-name"></span></h2>
-        </div>
-    </div>
+    <h2 class="welcome"> Welcome <span class="member-name"></span></h2>
 </div>
 <br>
 
-<button id="get-location">
-    Get Current Location
-</button>
+<div class="container">
+    <div>
+        <button id="get-location">
+            Get Current Location
+        </button>
 
+        <div class="row">
+            <div class="col-3">
+                <div id="cuisineList">
+                    <ul class="cuisineType"></ul>
 
-<div class="row">
-    <div class="col-3">
-        <div id="cuisineList">
-            <ul class="cuisineType"></ul>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="restaurantInfo">
 
+                </div>
+            </div>
         </div>
+
+
     </div>
     <div class="col-9">
         <div class="restaurantInfo">
 
         </div>
     </div>
-</div>

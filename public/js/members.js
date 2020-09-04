@@ -63,17 +63,18 @@ $(document).ready(() => {
               let restaurantName = result.restaurants[i].restaurant.name;
               let restaurantTime = result.restaurants[i].restaurant.timings;
               let restaurantURL = result.restaurants[i].restaurant.url;
+              let restaurantID = result.restaurants[i].restaurant.R.res_id;
+              console.log(restaurantID);
               console.log(result.restaurants[i]);
               console.log(restaurantName);
               console.log(address);
 
               $(`
-              <div class="card restInfo" style="width: 100%;">
-              <div class="card-body">
-              <h5 class="card-title">${restaurantName}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">${address}</h6>
+              <div class="card" style="width: 100%;">
+              <div class="card-body restInfo">
+              <h5 class="card-title"><a href="${restaurantURL}" class="card-link" data-restaurantID="${restaurantID}" data-restaurantName="${restaurantName}"${restaurantID}">${restaurantName}</a></h5>
+              <h6 class="card-subtitle mb-2 text-muted" id="address" data-address="${address}">${address}</h6>
               <p class="card-text">${restaurantTime}</p>
-              <a href="${restaurantURL}" class="card-link">Website</a>
               </div>
               </div>
               `).appendTo(".restaurantInfo");
@@ -82,4 +83,28 @@ $(document).ready(() => {
       });
     });
   });
+  $(".restaurantInfo").on("click", ".restInfo", function() {
+    let restaurantAddress = $(this)
+      .find("h6")
+      .attr("data-address");
+
+    let idOfRestaurant = $(this)
+      .find("h5")
+      .find("a")
+      .attr("data-restaurantID");
+    let nameOfRestaurant = $(this)
+      .find("h5")
+      .find("a")
+      .attr("data-restaurantName");
+
+    console.log(this);
+    console.log(idOfRestaurant);
+    console.log(nameOfRestaurant);
+    console.log(restaurantAddress);
+    newPage(idOfRestaurant, nameOfRestaurant);
+  });
+
+  function newPage(idOfRestaurant, nameOfRestaurant) {
+    window.location.href = `./restaurantReview?restaurant=${idOfRestaurant}&restaurantName=${nameOfRestaurant}`;
+  }
 });

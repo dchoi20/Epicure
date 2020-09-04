@@ -7,10 +7,21 @@ module.exports = function(sequelize, DataTypes) {
         len: [1],
       },
     },
+    review: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [0, 240],
+      },
+    },
   });
 
   Restaurant.associate = function(models) {
-    Restaurant.belongsTo(models.User);
+    Restaurant.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
   };
   return Restaurant;
 };

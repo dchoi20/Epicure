@@ -14,6 +14,18 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/review", (req, res) => {
+    console.log(req.body.name);
+    console.log(req.body.review);
+    console.log(req.user.id);
+    db.Restaurant.create({
+      name: req.body.name,
+      review: req.body.review,
+      UserId: req.user.id,
+    }).then(() => {
+      res.status(200).end();
+    });
+  });
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
