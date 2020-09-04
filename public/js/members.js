@@ -6,6 +6,7 @@ $(document).ready(() => {
   });
 
   $("#get-location").on("click", function() {
+    console.log("searching location...");
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
@@ -103,6 +104,6 @@ $(document).ready(() => {
   });
 
   function newPage(idOfRestaurant, nameOfRestaurant) {
-    window.location.href = `./restaurantReview?restaurant=${idOfRestaurant}&restaurantName=${nameOfRestaurant}`;
+    window.location.href = `./overview?restaurant=${idOfRestaurant}&restaurantName=${nameOfRestaurant}`;
   }
 });
