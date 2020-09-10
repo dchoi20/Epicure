@@ -65,7 +65,7 @@ input[type="submit"]:hover {
 .restaurantInfo {
   color: #ff4b2b;
 }
-.welcome {
+h2 {
   color: #ff4b2b;
   text-align: center;
 }
@@ -92,4 +92,37 @@ input[type="submit"]:hover {
 .restaurantReviewName {
   text-align: center;
   color: #ff416c;
+}
+.contactUs {
+  text-align: center;
+  color: blue;
+  background: rgb(255, 140, 46);
+  background: linear-gradient(
+    90deg,
+    rgb(255, 105, 46) 2%,
+    rgb(229, 255, 0) 100%
+  );
+}
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* NAV STYLING */
+.navbar {
+  background: rgb(255, 140, 46);
+  background: linear-gradient(
+    90deg,
+    rgb(255, 105, 46) 2%,
+    rgb(229, 255, 0) 100%
+  );
+  z-index: 2;
+}
+.memberPage { 
+  background: rgb(255, 140, 46);
+  background: linear-gradient(
+    90deg,
+    rgb(255, 105, 46) 2%,
+    rgb(229, 255, 0) 100%
+  );
+  
 }
